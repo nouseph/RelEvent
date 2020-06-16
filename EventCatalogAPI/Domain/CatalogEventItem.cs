@@ -14,7 +14,13 @@ namespace EventCatalogAPI.Domain
         public DateTime Date { get; set; }
         public string Location { get; set; }
         public string PictureUrl { get; set; }
+        public string EventHost { get; set; }
         public int CatalogEventCategoryId { get; set; }
         public CatalogEventCategory CatalogEventCategory { get; set; }
+
+        public int CatalogEventTypeId { get; set; }
+        public CatalogEventType CatalogEventType { get; set; }
+        public int EventTicketId { get; set; }
+        public EventTicket EventTicket { get; set; }
     }
 }

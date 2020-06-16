@@ -41,3 +41,14 @@ C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\runtimes\win-x8
 C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\EventCatalogAPI.deps.json
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\EventCatalogAPI.runtimeconfig.json
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\EventCatalogAPI.runtimeconfig.dev.json
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\EventCatalogAPI.dll
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\EventCatalogAPI.pdb
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.csproj.CoreCompileInputs.cache
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.dll
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.pdb
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.genruntimeconfig.cache
