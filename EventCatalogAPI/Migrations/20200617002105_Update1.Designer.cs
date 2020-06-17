@@ -4,14 +4,16 @@ using EventCatalogAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EventCatalogAPI.Migrations
 {
     [DbContext(typeof(CatalogEventContext))]
-    partial class CatalogEventContextModelSnapshot : ModelSnapshot
+    [Migration("20200617002105_Update1")]
+    partial class Update1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -20,6 +22,7 @@ namespace EventCatalogAPI.Migrations
                 .HasAnnotation("Relational:Sequence:.catalog_event_category_hilo", "'catalog_event_category_hilo', '', '1', '10', '', '', 'Int64', 'False'")
                 .HasAnnotation("Relational:Sequence:.catalog_event_item_hilo", "'catalog_event_item_hilo', '', '1', '10', '', '', 'Int64', 'False'")
                 .HasAnnotation("Relational:Sequence:.catalog_event_type_hilo", "'catalog_event_type_hilo', '', '1', '10', '', '', 'Int64', 'False'")
+                .HasAnnotation("Relational:Sequence:.event_ticket_hilo", "'event_ticket_hilo', '', '1', '10', '', '', 'Int64', 'False'")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("EventCatalogAPI.Domain.CatalogEventCategory", b =>
@@ -66,6 +69,9 @@ namespace EventCatalogAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("EventTicketId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -88,6 +94,8 @@ namespace EventCatalogAPI.Migrations
 
                     b.HasIndex("CatalogEventTypeId");
 
+                    b.HasIndex("EventTicketId");
+
                     b.ToTable("CatalogEventItems");
                 });
 
@@ -109,6 +117,38 @@ namespace EventCatalogAPI.Migrations
                     b.ToTable("CatalogEventTypes");
                 });
 
+            modelBuilder.Entity("EventCatalogAPI.Domain.EventTicket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:HiLoSequenceName", "event_ticket_hilo")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.SequenceHiLo);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("PictureUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EventTickets");
+                });
+
             modelBuilder.Entity("EventCatalogAPI.Domain.CatalogEventItem", b =>
                 {
                     b.HasOne("EventCatalogAPI.Domain.CatalogEventCategory", "CatalogEventCategory")
@@ -120,6 +160,12 @@ namespace EventCatalogAPI.Migrations
                     b.HasOne("EventCatalogAPI.Domain.CatalogEventType", "CatalogEventType")
                         .WithMany()
                         .HasForeignKey("CatalogEventTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EventCatalogAPI.Domain.EventTicket", "EventTicket")
+                        .WithMany()
+                        .HasForeignKey("EventTicketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

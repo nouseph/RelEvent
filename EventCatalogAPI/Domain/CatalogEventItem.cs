@@ -20,7 +20,7 @@ namespace EventCatalogAPI.Domain
 
         public int CatalogEventTypeId { get; set; }
         public CatalogEventType CatalogEventType { get; set; }
-        public int EventTicketId { get; set; }
-        public EventTicket EventTicket { get; set; }
+       
+
     }
 }

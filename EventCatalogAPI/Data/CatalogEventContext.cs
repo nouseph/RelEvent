@@ -17,7 +17,6 @@ namespace EventCatalogAPI.Data
         public DbSet<CatalogEventItem> CatalogEventItems { get; set; }
         public DbSet<CatalogEventType> CatalogEventTypes { get; set; }
 
-        public DbSet<EventTicket> EventTickets { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -89,45 +88,12 @@ namespace EventCatalogAPI.Data
                 .WithMany()
                 .HasForeignKey(i => i.CatalogEventTypeId);
 
-                //e.HasOne(i => i.EventTicket)
-                //.WithMany()
-                // .HasForeignKey(i => i.EventTicketId);
-
-
-            });
-
-
-            modelBuilder.Entity<EventTicket>(e =>
-            {
-                e.ToTable("EventTickets");
-
-                e.Property(t => t.Id)
-                .IsRequired()
-                .UseHiLo("event_ticket_hilo");
-
-                e.Property(t => t.Name)
-                .IsRequired()
-                .HasMaxLength(100);
-
-                e.Property(t => t.Date)
-                .IsRequired();
-
-                e.Property(t => t.Location)
-                .IsRequired();
-
-                e.Property(t => t.PictureUrl)
-                .IsRequired();
-
-                e.Property(t => t.Price)
-                .IsRequired();
-
-
-
-
 
 
 
             });
+
+
         }
     }
 }
