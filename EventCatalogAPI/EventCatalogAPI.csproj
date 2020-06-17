@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200617002354_Update2.cs" />
+    <Compile Remove="Migrations\20200617002354_Update2.Designer.cs" />
+    <Compile Remove="Migrations\20200617002557_Update3.cs" />
+    <Compile Remove="Migrations\20200617002557_Update3.Designer.cs" />
+    <Compile Remove="Migrations\20200617005113_new.cs" />
+    <Compile Remove="Migrations\20200617005113_new.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
@@ -18,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 
