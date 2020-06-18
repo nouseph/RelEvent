@@ -18,13 +18,11 @@ namespace EventCatalogAPI.Data
                 catalogEventContext.SaveChanges();
 
             }
-            catalogEventContext.Database.Migrate();
             if (!catalogEventContext.CatalogEventTypes.Any())
             {
                 catalogEventContext.CatalogEventTypes.AddRange(GetCatalogEventTypes());
                 catalogEventContext.SaveChanges();
             }
-            catalogEventContext.Database.Migrate();
             if (!catalogEventContext.CatalogEventItems.Any())
             {
                 catalogEventContext.CatalogEventItems.AddRange(GetCatalogEventItems());
