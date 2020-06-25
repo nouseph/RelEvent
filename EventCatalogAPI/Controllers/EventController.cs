@@ -57,5 +57,19 @@ namespace EventCatalogAPI.Controllers
                     _config["ExternalCatalogBaseUrl"]));
             return items;
         }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> CatalogEventTypes()
+        {
+            var eventTypes = await _context.CatalogEventTypes.ToListAsync();
+            return Ok(eventTypes);
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> CatalogEventCategories()
+        {
+            var eventCategories = await _context.CatalogEventCategories.ToListAsync();
+            return Ok(eventCategories);
+        }
     }
 }
