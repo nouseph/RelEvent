@@ -71,5 +71,42 @@ namespace EventCatalogAPI.Controllers
             var eventCategories = await _context.CatalogEventCategories.ToListAsync();
             return Ok(eventCategories);
         }
+
+        [HttpGet("[action]/type/{typeId}/category/{categoryId}")]
+        public async Task<IActionResult> Items(
+            int? typeId,
+            int? categoryId,
+            [FromQuery] int pageIndex = 0,
+            [FromQuery] int pageSize = 4
+            )
+        {
+            var query = (IQueryable<CatalogEventItem>)_context.CatalogEventItems;
+            if (typeId.HasValue)
+            {
+                query = query.Where(t => t.CatalogEventTypeId == typeId);
+            }
+            if (categoryId.HasValue)
+            {
+                query = query.Where(c => c.CatalogEventCategoryId == categoryId);
+            }
+
+            var itemsCount = await query.LongCountAsync();
+            var items = await query
+                .OrderBy(c => c.Name)
+                .Skip(pageIndex * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            items = ChangePictureUrl(items);
+            var model = new PaginatedItemsViewModel<CatalogEventItem>
+            {
+                PageIndex = pageIndex,
+                PageSize = items.Count,
+                Count = itemsCount,
+                Data = items
+            };
+
+            return Ok(model);
+        }
     }
 }
