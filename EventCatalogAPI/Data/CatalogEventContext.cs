@@ -9,6 +9,7 @@ namespace EventCatalogAPI.Data
 {
     public class CatalogEventContext : DbContext
     {
+        //Constructor
         public CatalogEventContext(DbContextOptions options) : base(options)
         {
 
@@ -62,7 +63,7 @@ namespace EventCatalogAPI.Data
                .HasMaxLength(100);
 
                 e.Property(i => i.Description)
-                .IsRequired()
+                //.IsRequired()
                 .HasMaxLength(500);
 
                 e.Property(i => i.Date)
@@ -72,7 +73,7 @@ namespace EventCatalogAPI.Data
                 .IsRequired();
 
                 e.Property(i => i.PictureUrl)
-                .IsRequired();
+                /*.IsRequired()*/;
 
                 e.Property(i => i.Price)
                 .IsRequired();
@@ -87,13 +88,7 @@ namespace EventCatalogAPI.Data
                 e.HasOne(i => i.CatalogEventType)
                 .WithMany()
                 .HasForeignKey(i => i.CatalogEventTypeId);
-
-
-
-
             });
-
-
         }
     }
 }
