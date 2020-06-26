@@ -7,12 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200616145927_Initial.cs" />
+    <Compile Remove="Migrations\20200616145927_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617000503_Update.cs" />
+    <Compile Remove="Migrations\20200617000503_Update.Designer.cs" />
+    <Compile Remove="Migrations\20200617002105_Update1.cs" />
+    <Compile Remove="Migrations\20200617002105_Update1.Designer.cs" />
     <Compile Remove="Migrations\20200617002354_Update2.cs" />
     <Compile Remove="Migrations\20200617002354_Update2.Designer.cs" />
     <Compile Remove="Migrations\20200617002557_Update3.cs" />
     <Compile Remove="Migrations\20200617002557_Update3.Designer.cs" />
     <Compile Remove="Migrations\20200617005113_new.cs" />
     <Compile Remove="Migrations\20200617005113_new.Designer.cs" />
+    <Compile Remove="Migrations\20200617012528_new.cs" />
+    <Compile Remove="Migrations\20200617012528_new.Designer.cs" />
+    <Compile Remove="Migrations\20200617170410_view.cs" />
+    <Compile Remove="Migrations\20200617170410_view.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

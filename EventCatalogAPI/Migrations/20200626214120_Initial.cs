@@ -19,10 +19,6 @@ namespace EventCatalogAPI.Migrations
                 name: "catalog_event_type_hilo",
                 incrementBy: 10);
 
-            migrationBuilder.CreateSequence(
-                name: "event_ticket_hilo",
-                incrementBy: 10);
-
             migrationBuilder.CreateTable(
                 name: "CatalogEventCategories",
                 columns: table => new
@@ -48,22 +44,6 @@ namespace EventCatalogAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EventTickets",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(maxLength: 100, nullable: false),
-                    Date = table.Column<DateTime>(nullable: false),
-                    Location = table.Column<string>(nullable: false),
-                    Price = table.Column<decimal>(nullable: false),
-                    PictureUrl = table.Column<string>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EventTickets", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "CatalogEventItems",
                 columns: table => new
                 {
@@ -76,8 +56,7 @@ namespace EventCatalogAPI.Migrations
                     PictureUrl = table.Column<string>(nullable: false),
                     EventHost = table.Column<string>(nullable: false),
                     CatalogEventCategoryId = table.Column<int>(nullable: false),
-                    CatalogEventTypeId = table.Column<int>(nullable: false),
-                    EventTicketId = table.Column<int>(nullable: false)
+                    CatalogEventTypeId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -94,12 +73,6 @@ namespace EventCatalogAPI.Migrations
                         principalTable: "CatalogEventTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CatalogEventItems_EventTickets_EventTicketId",
-                        column: x => x.EventTicketId,
-                        principalTable: "EventTickets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -111,11 +84,6 @@ namespace EventCatalogAPI.Migrations
                 name: "IX_CatalogEventItems_CatalogEventTypeId",
                 table: "CatalogEventItems",
                 column: "CatalogEventTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CatalogEventItems_EventTicketId",
-                table: "CatalogEventItems",
-                column: "EventTicketId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -129,9 +97,6 @@ namespace EventCatalogAPI.Migrations
             migrationBuilder.DropTable(
                 name: "CatalogEventTypes");
 
-            migrationBuilder.DropTable(
-                name: "EventTickets");
-
             migrationBuilder.DropSequence(
                 name: "catalog_event_category_hilo");
 
@@ -140,9 +105,6 @@ namespace EventCatalogAPI.Migrations
 
             migrationBuilder.DropSequence(
                 name: "catalog_event_type_hilo");
-
-            migrationBuilder.DropSequence(
-                name: "event_ticket_hilo");
         }
     }
 }
