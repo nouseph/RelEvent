@@ -351,3 +351,11 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+EventCatalogAPI/obj/Debug/netcoreapp3.1/EventCatalogAPI.assets.cache
+.vs/RelEvent/v16/.suo
+EventCatalogAPI/obj/Debug/netcoreapp3.1/EventCatalogAPI.csproj.FileListAbsolute.txt
+EventCatalogAPI/obj/Debug/netcoreapp3.1/EventCatalogAPI.csprojAssemblyReference.cache
+EventCatalogAPI/obj/EventCatalogAPI.csproj.nuget.dgspec.json
+EventCatalogAPI/obj/EventCatalogAPI.csproj.nuget.g.props
+EventCatalogAPI/obj/project.assets.json
+EventCatalogAPI/obj/project.nuget.cache
