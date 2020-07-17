@@ -5074,23 +5074,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nirmala Ouseph\\.nuget\\packages\\": {},
+    "C:\\Users\\Gessica\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\SWC-7\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Gessica\\Documents\\GitHub\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj",
       "projectName": "EventCatalogAPI",
-      "projectPath": "C:\\GitHub\\SWC-7\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj",
-      "packagesPath": "C:\\Users\\Nirmala Ouseph\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\SWC-7\\RelEvent\\EventCatalogAPI\\obj\\",
+      "projectPath": "C:\\Users\\Gessica\\Documents\\GitHub\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj",
+      "packagesPath": "C:\\Users\\Gessica\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Gessica\\Documents\\GitHub\\RelEvent\\EventCatalogAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Nirmala Ouseph\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gessica\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5148,12 +5148,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.2, 3.1.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5162,7 +5156,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     }
   }
