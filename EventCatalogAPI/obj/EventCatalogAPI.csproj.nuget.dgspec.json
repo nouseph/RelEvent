@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gessica\\Documents\\GitHub\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj": {}
+    "C:\\GitHub\\SWC-7\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gessica\\Documents\\GitHub\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj": {
+    "C:\\GitHub\\SWC-7\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gessica\\Documents\\GitHub\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj",
+        "projectUniqueName": "C:\\GitHub\\SWC-7\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj",
         "projectName": "EventCatalogAPI",
-        "projectPath": "C:\\Users\\Gessica\\Documents\\GitHub\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj",
-        "packagesPath": "C:\\Users\\Gessica\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gessica\\Documents\\GitHub\\RelEvent\\EventCatalogAPI\\obj\\",
+        "projectPath": "C:\\GitHub\\SWC-7\\RelEvent\\EventCatalogAPI\\EventCatalogAPI.csproj",
+        "packagesPath": "C:\\Users\\Nirmala Ouseph\\.nuget\\packages\\",
+        "outputPath": "C:\\GitHub\\SWC-7\\RelEvent\\EventCatalogAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Gessica\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nirmala Ouseph\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -63,6 +63,10 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.1, )"
             }
           },
           "imports": [

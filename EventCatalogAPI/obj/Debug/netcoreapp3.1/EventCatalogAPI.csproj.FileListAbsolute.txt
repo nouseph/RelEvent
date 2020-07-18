@@ -160,3 +160,8 @@ C:\Users\Ahsan\Documents\SoftDev\KAL-SDB-C7\RelEvent\EventCatalogAPI\obj\Debug\n
 C:\Users\Ahsan\Documents\SoftDev\KAL-SDB-C7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.dll
 C:\Users\Ahsan\Documents\SoftDev\KAL-SDB-C7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.pdb
 C:\Users\Ahsan\Documents\SoftDev\KAL-SDB-C7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.genruntimeconfig.cache
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\GitHub\SWC-7\RelEvent\EventCatalogAPI\obj\Debug\netcoreapp3.1\EventCatalogAPI.MvcApplicationPartsAssemblyInfo.cs
