@@ -32,6 +32,8 @@ services:
       dockerfile: Dockerfile
     environment:
       CatalogUrl: http://catalog
+      IdentityUrl: http://172.29.80.1:6750
+      CallBackUrl: http://localhost:6815
     ports:
       - "6815:80"
     container_name: onlinewebevents
@@ -40,6 +42,21 @@ services:
     depends_on:
       - catalog  
       
+  tokenserver:
+    build:
+      context: .\TokenServiceApi
+      dockerfile: Dockerfile
+    image: jewels/tokenapi
+    environment:
+      Mvcclient: http://localhost:6815
+    ports:
+      - "6750:80"
+    container_name: rlvnttokenserviceapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
