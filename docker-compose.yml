@@ -1,0 +1,73 @@
+version: '3.4'
+
+networks:
+  frontend:
+  backend:
+
+services:
+  catalog:
+    image: events/catalogapi
+    build:
+      context: .\EventCatalogAPI
+      dockerfile: Dockerfile
+    environment:
+      ExternalCatalogBaseUrl: http://localhost:6543
+      DatabaseServer: mssqlserver
+      DatabaseName: CatalogEventDb
+      DatabaseUser: sa 
+      DatabasePassword: EventApi(!)
+    ports:
+      - "6543:80"
+    container_name: eventscatalogapis
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - mssqlserver
+
+  webmvc:
+    image: events/webmvc
+    build:
+      context: .\WebMvc
+      dockerfile: Dockerfile
+    environment:
+      CatalogUrl: http://catalog
+      ASPNETCORE_ENVIRONMENT: Development
+      IdentityUrl: http://192.168.64.1:6750
+      CallBackUrl: http://localhost:6818
+    ports:
+      - "6818:80"
+    container_name: onlinewebevent
+    networks:
+      - frontend
+    depends_on:
+      - catalog  
+      
+  tokenserver:
+    build:
+      context: .\TokenServiceApi
+      dockerfile: Dockerfile
+    image: events/tokenapi
+    environment:
+      Mvcclient: http://localhost:6818
+    ports:
+      - "6750:80"
+    container_name: tokenserviceapis
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver
+
+
+  mssqlserver:
+    image: "microsoft/mssql-server-linux:latest"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: EventApi(!)
+    ports:
+      - "1357:1433"
+    container_name: eventssqlservers
+    networks:
+      - backend
+
