@@ -97,7 +97,7 @@ services:
       DatabasePassword: EventApi(!)
     ports:
       - "6819:80"
-    container_name: orderapi
+    container_name: eventorderapi
     networks:
       - backend
       - frontend
