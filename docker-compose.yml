@@ -34,7 +34,7 @@ services:
       CatalogUrl: http://catalog
       CartUrl: http://cart
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.87.65:6750
+      IdentityUrl: http://192.168.64.1:6750
       CallBackUrl: http://localhost:6818
     ports:
       - "6818:80"
@@ -68,7 +68,7 @@ services:
       dockerfile: Dockerfile
     image: events/cartapi
     environment:
-      IdentityUrl: http://192.168.87.65:6750
+      IdentityUrl: http://192.168.64.1:6750
       ConnectionString: basket.data
     ports:
       - "6817:80"
@@ -80,6 +80,27 @@ services:
       - tokenserver
       - basket.data
 
+  order:
+    build:
+      context: .\OrderApi
+      dockerfile: Dockerfile
+    image: events/orderapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      IdentityUrl: http://192.168.64.1:6700
+      DatabaseServer: mssqlserver
+      DatabaseName: OrdersDb
+      DatabaseUser: sa
+      DatabasePassword: EventApi(!)
+    ports:
+      - "6819:80"
+    container_name: orderapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver
+      - tokenserver
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
