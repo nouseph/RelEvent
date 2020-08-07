@@ -109,7 +109,7 @@ namespace WebMvc.Controllers
                         int orderId = await _orderSvc.CreateOrder(order);
                         //_logger.LogDebug("User {userName} finished order processing  of {orderId}.", order.UserName, order.OrderId);
 
-                        await _cartSvc.ClearCart(user);
+                        //await _cartSvc.ClearCart(user);
                         return RedirectToAction("Complete", new { id = orderId, userName = user.UserName });
                     }
 
@@ -144,7 +144,7 @@ namespace WebMvc.Controllers
 
         public async Task<IActionResult> Detail(string orderId)
         {
-            var user =   _identitySvc.Get(HttpContext.User);
+            var user = _identitySvc.Get(HttpContext.User);
 
             var order = await _orderSvc.GetOrder(orderId);
             return View(order);

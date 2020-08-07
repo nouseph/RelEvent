@@ -26,7 +26,7 @@ services:
       - mssqlserver
 
   webmvc:
-    image: events/webmvc
+    image: events/webmvc 
     build:
       context: .\WebMvc
       dockerfile: Dockerfile
@@ -34,11 +34,11 @@ services:
       CatalogUrl: http://catalog
       CartUrl: http://cart
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.64.1:6750
+      IdentityUrl: http://192.168.86.26:6755
       CallBackUrl: http://localhost:6818
       OrderUrl: http://order
-      StripePublicKey: pk_test_51HCXWoAswthH3O2UtDQ75LeZpiTYpaIYvBCe93x5YvQkPENt8XIs9HL17XjFzQ8eslwyHr8qdq6VkEKZyL9vRbx000KssTuyS0
-      StripePrivateKey: sk_test_51HCXWoAswthH3O2U59zz231jmPgLzg5o5kCZTsDQIcensNonm8nZXVpD7FzzpN3ViSLvTd9silaTFNnngO5YIUJt00oyCopsqb
+      StripePublicKey: pk_test_51HBkBkA20oX5QlslAuHyKoCqywQkU06kK5MIUrQk8cj2Xg6ZssBE7Qhxp1SntUnkfD9otfl8Bg69zRWv4LLDZfO800gLpC5sfC
+      StripePrivateKey: sk_test_51HBkBkA20oX5QlslwNG060uAxU7NCoKvqGhpcFoBT3jZMFV0G588MlUrMz7HPyCkDCt6OcaFeKoqCjXgPsIwevSs00KC0Yr7E4
     ports:
       - "6818:80"
     container_name: onlinewebevent
@@ -57,7 +57,7 @@ services:
     environment:
       Mvcclient: http://localhost:6818
     ports:
-      - "6750:80"
+      - "6755:80"
     container_name: tokenserviceapis
     networks:
       - backend
@@ -71,7 +71,7 @@ services:
       dockerfile: Dockerfile
     image: events/cartapi
     environment:
-      IdentityUrl: http://192.168.64.1:6750
+      IdentityUrl: http://192.168.86.26:6755
       ConnectionString: basket.data
     ports:
       - "6817:80"
@@ -82,15 +82,22 @@ services:
     depends_on:
       - tokenserver
       - basket.data
+      - rabbitmq
 
   order:
     build:
       context: .\OrderApi
       dockerfile: Dockerfile
     image: events/orderapi
+    logging:
+      driver: "json-file"
+      options: {
+        max-size: "200K",
+        max-file: "10"
+      }
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      IdentityUrl: http://192.168.64.1:6700
+      IdentityUrl: http://192.168.86.26:6755
       DatabaseServer: mssqlserver
       DatabaseName: OrdersDb
       DatabaseUser: sa
@@ -104,6 +111,7 @@ services:
     depends_on:
       - mssqlserver
       - tokenserver
+      - rabbitmq
 
   mssqlserver:
     image: "microsoft/mssql-server-linux:latest"
@@ -124,3 +132,19 @@ services:
       - "6085:6379"
     networks:
       - backend
+
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: eventrabbitmq
+    hostname: myrabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "5671:5671"
+    volumes:
+      - ~/rabbitmq:/var/lib/rabbitmq/mnesia   
+    networks:
+      - backend 
+
+  
