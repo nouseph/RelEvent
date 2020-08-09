@@ -1,8 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using WebMvc.Services
+@using WebMvc.Models
 
-
-
- @if (User.FindFirst(x => x.Type == "preferred_username") != null) {
+@inject IIdentityService<ApplicationUser> UserManager
+@if (User.FindFirst(x => x.Type == "preferred_username") != null)
+{
 
     <section class="col-lg-4 col-md-5 col-xs-12">
         <div class="esh-identity">
@@ -16,9 +18,9 @@
 
                 <section class="esh-identity-drop">
 
-                   
 
-                   
+
+
 
                     <a class="esh-identity-item"
                        href="javascript:document.getElementById('logoutForm').submit()">
@@ -32,7 +34,7 @@
     </section>
 
     <section class="col-lg-1 col-xs-12">
-     
+        @await Component.InvokeAsync("Cart", new { user = UserManager.Get(User) })
     </section>
 
 }
@@ -44,7 +46,7 @@ else
                 <div class="esh-identity-item">
 
                     <a asp-area="" asp-controller="Account" asp-action="SignIn" class="esh-identity-name esh-identity-name--upper">
-                       Login
+                        Login
                     </a>
                 </div>
             </section>
